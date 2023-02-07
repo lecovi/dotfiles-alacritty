@@ -4,7 +4,7 @@ My Alacritty configuration file
 
 ## Installation
 
-Run [`install.sh`](../blob/main/install.sh) script to install the configuration file.
+Run [`install.sh`](../main/install.sh) script to install the configuration file.
 
 ```bash
 $ ./install.sh
