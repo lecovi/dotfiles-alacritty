@@ -10,8 +10,9 @@ set BOLD_GREEN '\e[1;32m'
 set BOLD_YELLOW '\e[1;33m'
 set BOLD_BLUE '\e[1;34m'
 
+set -l _ALACRITTY_SOURCE_CONFIG_FILE /config/alacritty/alacritty.toml
 set -l _ALACRITTY_CONFIG_PATH ~/.config/alacritty
-set -l _ALACRITTY_CONFIG_FILE ~/.config/alacritty/alacritty.yml
+set -l _ALACRITTY_CONFIG_FILE ~/.config/alacritty/alacritty.toml
 set -l _FONTS_PATH ~/.fonts
 
 # Create ~/.alacritty folder
@@ -22,10 +23,10 @@ else
     echo -e $BOLD_RED"$_ALACRITTY_CONFIG_PATH folder already exists."$RESET
 end
 
-# Link alacritty.yml to ~/.alacritty/alacritty.yml
+# Link alacritty.toml to ~/.config/alacritty/alacritty.toml
 if not test -f $_ALACRITTY_CONFIG_FILE
     echo -e $BOLD_GREEN"Linking _ALACRITTY_CONFIG_FILE..."$RESET
-    ln -s (pwd)/config/alacritty.yml $_ALACRITTY_CONFIG_FILE
+    ln -s (pwd)$_ALACRITTY_SOURCE_CONFIG_FILE $_ALACRITTY_CONFIG_FILE
 else
     echo -e $BOLD_RED"$_ALACRITTY_CONFIG_FILE already exists."$RESET
 end
